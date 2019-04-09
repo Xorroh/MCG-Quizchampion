@@ -11,20 +11,22 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.ButtonGroup;
 
 public class GUI_START extends JFrame {
 
 	private JPanel contentPane;
 	private JLabel lblTitel;
-	private JTextField txtSpielername;
-	private JTextField txtSpielername_1;
-	private JTextField txtSpielername_2;
+	private JTextField txtSpielername1;
+	private JTextField txtSpielername2;
+	private JTextField txtSpielername3;
 	private JButton btnStart;
 	private JButton btnLaden;
 	private JLabel lblRegeln;
-	private JButton btnSpieler;
-	private JButton btnNewButton;
-	private JButton btnSpieler_1;
+	private JButton btn1Spieler;
+	private JButton btn2Spieler;
+	private JButton btn3Spieler;
+	private final ButtonGroup buttonGroupSpielerzahl = new ButtonGroup();
 
 	/**
 	 * Launch the application.
@@ -59,24 +61,36 @@ public class GUI_START extends JFrame {
 		lblTitel.setBounds(331, 100, 354, 47);
 		contentPane.add(lblTitel);
 		
-		txtSpielername = new JTextField();
-		txtSpielername.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		txtSpielername.setText("Spielername");
-		txtSpielername.setBounds(146, 447, 96, 20);
-		contentPane.add(txtSpielername);
-		txtSpielername.setColumns(10);
+		txtSpielername1 = new JTextField();
+		txtSpielername1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Hauptklasse.setSpielername1(txtSpielername1.getText());
+			}
+		});
+		txtSpielername1.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		txtSpielername1.setBounds(146, 447, 96, 20);
+		contentPane.add(txtSpielername1);
+		txtSpielername1.setColumns(10);
 		
-		txtSpielername_1 = new JTextField();
-		txtSpielername_1.setText("Spielername");
-		txtSpielername_1.setBounds(146, 505, 96, 20);
-		contentPane.add(txtSpielername_1);
-		txtSpielername_1.setColumns(10);
+		txtSpielername2 = new JTextField();
+		txtSpielername2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Hauptklasse.setSpielername2(txtSpielername2.getText());
+			}
+		});
+		txtSpielername2.setBounds(146, 505, 96, 20);
+		contentPane.add(txtSpielername2);
+		txtSpielername2.setColumns(10);
 		
-		txtSpielername_2 = new JTextField();
-		txtSpielername_2.setText("Spielername");
-		txtSpielername_2.setBounds(146, 564, 96, 20);
-		contentPane.add(txtSpielername_2);
-		txtSpielername_2.setColumns(10);
+		txtSpielername3 = new JTextField();
+		txtSpielername3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Hauptklasse.setSpielername3(txtSpielername3.getText());
+			}
+		});
+		txtSpielername3.setBounds(146, 564, 96, 20);
+		contentPane.add(txtSpielername3);
+		txtSpielername3.setColumns(10);
 		
 		btnStart = new JButton("Start");
 		btnStart.setFont(new Font("Tahoma", Font.PLAIN, 24));
@@ -97,16 +111,34 @@ public class GUI_START extends JFrame {
 		lblRegeln.setBounds(299, 187, 62, 20);
 		contentPane.add(lblRegeln);
 		
-		btnSpieler = new JButton("Spieler 1");
-		btnSpieler.setBounds(146, 420, 96, 23);
-		contentPane.add(btnSpieler);
+		btn1Spieler = new JButton("Spieler 1");
+		buttonGroupSpielerzahl.add(btn1Spieler);
+		btn1Spieler.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Hauptklasse.setSpielerZahl(1);
+			}
+		});
+		btn1Spieler.setBounds(146, 420, 96, 23);
+		contentPane.add(btn1Spieler);
 		
-		btnNewButton = new JButton("Spieler 2");
-		btnNewButton.setBounds(146, 478, 96, 23);
-		contentPane.add(btnNewButton);
+		btn2Spieler = new JButton("Spieler 2");
+		buttonGroupSpielerzahl.add(btn2Spieler);
+		btn2Spieler.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Hauptklasse.setSpielerZahl(2);
+			}
+		});
+		btn2Spieler.setBounds(146, 478, 96, 23);
+		contentPane.add(btn2Spieler);
 		
-		btnSpieler_1 = new JButton("Spieler 3");
-		btnSpieler_1.setBounds(146, 536, 96, 23);
-		contentPane.add(btnSpieler_1);
+		btn3Spieler = new JButton("Spieler 3");
+		buttonGroupSpielerzahl.add(btn3Spieler);
+		btn3Spieler.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Hauptklasse.setSpielerZahl(3);
+			}
+		});
+		btn3Spieler.setBounds(146, 536, 96, 23);
+		contentPane.add(btn3Spieler);
 	}
 }
